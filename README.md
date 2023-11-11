@@ -18,7 +18,7 @@
 - Find and Select: GitHub Actions
 ![pages](./assets/images/ReadMe/source.png)
 - Under the Jekyll card click: Configure
-![pages](./assets/images/ReadMe/configure.png)
+![pages](./assets/images/ReadMe/config.png)
 - Click: Commit Changes...
 ![pages](./assets/images/ReadMe/commit.png)
 
