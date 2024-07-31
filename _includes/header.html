@@ -1,15 +1,15 @@
- <nav class="navbar bg-base-100 shadow-lg">
-        <div class="container mx-auto">
-            <div class="flex-1">
-                <a class="btn btn-ghost normal-case text-xl">MyWebsite</a>
-            </div>
-            <div class="flex-none">
-                <ul class="menu menu-horizontal p-0">
-                    <li><a>Home</a></li>
-                    <li><a>About</a></li>
-                    <li><a>Services</a></li>
-                    <li><a>Contact</a></li>
-                </ul>
-            </div>
+<nav class="navbar bg-base-100 shadow-lg">
+    <div class="container mx-auto">
+        <div class="flex-1">
+            <a class="btn btn-ghost normal-case text-xl" href="index.html">MyWebsite</a>
         </div>
-    </nav>
+        <div class="flex-none">
+            <ul class="menu menu-horizontal p-0">
+                <li><a href="{{ site.baseurl }}/index.html">Home</a></li>
+                <li><a href="{{ site.baseurl }}/pages/gallery.html">About</a></li>
+                <li><a href="{{ site.baseurl }}/pages/gallery.html">Services</a></li>
+                <li><a href="{{ site.baseurl }}/pages/gallery.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
