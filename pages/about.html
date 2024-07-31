@@ -1,1 +1,97 @@
+---
+layout: default
+title: About
+---
 
+<stlye>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+    margin: 0;
+}
+
+.solar-system {
+    position: relative;
+    width: 400px;
+    height: 400px;
+}
+
+.sun {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    margin-top: -25px;
+    margin-left: -25px;
+    background-color: yellow;
+    border-radius: 50%;
+    box-shadow: 0 0 30px yellow;
+}
+
+.planet {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 50%;
+}
+
+.mercury {
+    background-color: gray;
+    animation: orbit-mercury 4s linear infinite;
+    transform-origin: -60px;
+}
+
+.venus {
+    background-color: orange;
+    animation: orbit-venus 6s linear infinite;
+    transform-origin: -90px;
+}
+
+.earth {
+    background-color: blue;
+    animation: orbit-earth 8s linear infinite;
+    transform-origin: -120px;
+}
+
+.mars {
+    background-color: red;
+    animation: orbit-mars 10s linear infinite;
+    transform-origin: -150px;
+}
+
+@keyframes orbit-mercury {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes orbit-venus {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes orbit-earth {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes orbit-mars {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+</stlye>
+
+<div class="solar-system">
+        <div class="sun"></div>
+        <div class="planet mercury"></div>
+        <div class="planet venus"></div>
+        <div class="planet earth"></div>
+        <div class="planet mars"></div>
+    </div>
