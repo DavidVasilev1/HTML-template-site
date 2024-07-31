@@ -4,7 +4,6 @@ title: About
 ---
 
 <style>
-
 .solar-system {
     position: relative;
     width: 1000px;
@@ -44,28 +43,24 @@ title: About
     background-color: gray;
     animation: orbit-mercury 4s linear infinite;
     transform-origin: -60px;
-    transform: rotate(0deg); /* Start position */
 }
 
 .venus {
     background-color: orange;
     animation: orbit-venus 6s linear infinite;
     transform-origin: -90px;
-    transform: rotate(90deg); /* Start position */
 }
 
 .earth {
     background-color: blue;
     animation: orbit-earth 8s linear infinite;
     transform-origin: -120px;
-    transform: rotate(180deg); /* Start position */
 }
 
 .mars {
     background-color: red;
     animation: orbit-mars 10s linear infinite;
     transform-origin: -150px;
-    transform: rotate(270deg); /* Start position */
 }
 
 @keyframes orbit-mercury {
@@ -74,18 +69,18 @@ title: About
 }
 
 @keyframes orbit-venus {
-    from { transform: rotate(90deg); }
-    to { transform: rotate(450deg); }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 @keyframes orbit-earth {
-    from { transform: rotate(180deg); }
-    to { transform: rotate(540deg); }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 @keyframes orbit-mars {
-    from { transform: rotate(270deg); }
-    to { transform: rotate(630deg); }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 </style>
@@ -97,3 +92,21 @@ title: About
         <div class="planet earth"></div>
         <div class="planet mars"></div>
     </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const planets = {
+        mercury: document.getElementById('mercury'),
+        venus: document.getElementById('venus'),
+        earth: document.getElementById('earth'),
+        mars: document.getElementById('mars')
+    };
+
+    for (const planet in planets) {
+        const randomDegree = Math.floor(Math.random() * 360);
+        planets[planet].style.transform = `rotate(${randomDegree}deg)`;
+        planets[planet].style.animation = `orbit-${planet} ${planet === 'mercury' ? 4 : planet === 'venus' ? 6 : planet === 'earth' ? 8 : 10}s linear infinite`;
+    }
+});
+
+</script>
