@@ -9,7 +9,7 @@ title: About
     position: relative;
     width: 1000px;
     height: 800px;
-  display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     background-color: #000;
@@ -44,24 +44,28 @@ title: About
     background-color: gray;
     animation: orbit-mercury 4s linear infinite;
     transform-origin: -60px;
+    transform: rotate(0deg); /* Start position */
 }
 
 .venus {
     background-color: orange;
     animation: orbit-venus 6s linear infinite;
     transform-origin: -90px;
+    transform: rotate(90deg); /* Start position */
 }
 
 .earth {
     background-color: blue;
     animation: orbit-earth 8s linear infinite;
     transform-origin: -120px;
+    transform: rotate(180deg); /* Start position */
 }
 
 .mars {
     background-color: red;
     animation: orbit-mars 10s linear infinite;
     transform-origin: -150px;
+    transform: rotate(270deg); /* Start position */
 }
 
 @keyframes orbit-mercury {
@@ -70,19 +74,20 @@ title: About
 }
 
 @keyframes orbit-venus {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from { transform: rotate(90deg); }
+    to { transform: rotate(450deg); }
 }
 
 @keyframes orbit-earth {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from { transform: rotate(180deg); }
+    to { transform: rotate(540deg); }
 }
 
 @keyframes orbit-mars {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from { transform: rotate(270deg); }
+    to { transform: rotate(630deg); }
 }
+
 </style>
 
 <div class="solar-system">
