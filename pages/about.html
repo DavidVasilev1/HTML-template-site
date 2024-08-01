@@ -4,109 +4,321 @@ title: About
 ---
 
 <style>
-.solar-system {
-    position: relative;
-    width: 1000px;
-    height: 800px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #000;
-    margin: 0;
-}
+        /* CSS for the solar system */
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
 
-.sun {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 50px;
-    height: 50px;
-    margin-top: -25px;
-    margin-left: -25px;
-    background-color: yellow;
-    border-radius: 50%;
-    box-shadow: 0 0 30px yellow;
-}
+        .solar-system {
+            position: relative;
+            width: 3000px; /* Container width */
+            height: 3000px; /* Container height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            margin: 0;
+            overflow: visible; /* Make sure overflow is visible */
+        }
 
-.planet {
-    position: absolute;
-    top: 50%;
-    left: 58%;
-    width: 20px;
-    height: 20px;
-    margin-top: -10px;
-    margin-left: -10px;
-    border-radius: 50%;
-}
+        .star-field {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; /* Ensure stars are behind the solar system */
+            overflow: hidden;
+        }
 
-.mercury {
-    background-color: gray;
-    animation: orbit-mercury 4s linear infinite;
-    transform-origin: -60px;
-}
+        .sun {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 150px; /* Increased size of the sun */
+            height: 150px;
+            margin-top: -75px;
+            margin-left: -75px;
+            background-color: #ffcc00;
+            border-radius: 50%;
+            box-shadow: 0 0 100px 30px #ffcc00; /* Increased glow */
+            z-index: 1; /* Ensure the sun is above the planets */
+        }
 
-.venus {
-    background-color: orange;
-    animation: orbit-venus 6s linear infinite;
-    transform-origin: -90px;
-}
+        .planet {
+            position: absolute;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Subtle glow */
+        }
 
-.earth {
-    background-color: blue;
-    animation: orbit-earth 8s linear infinite;
-    transform-origin: -120px;
-}
+        /* Define the size and animation for each planet */
+        .mercury {
+            width: 15px; /* Increased size */
+            height: 15px;
+            background-color: #6d6e71;
+            animation: orbit-mercury 10s linear infinite; /* Faster orbit */
+        }
 
-.mars {
-    background-color: red;
-    animation: orbit-mars 10s linear infinite;
-    transform-origin: -150px;
-}
+        .venus {
+            width: 25px; /* Increased size */
+            height: 25px;
+            background-color: #e5b63e;
+            animation: orbit-venus 20s linear infinite; /* Faster orbit */
+        }
 
-@keyframes orbit-mercury {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
+        .earth {
+            width: 35px; /* Increased size */
+            height: 35px;
+            background-color: #1e90ff;
+            animation: orbit-earth 30s linear infinite; /* Faster orbit */
+            position: relative; /* Make sure Earth is positioned relative to its container */
+        }
 
-@keyframes orbit-venus {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
+        .mars {
+            width: 30px; /* Increased size */
+            height: 30px;
+            background-color: #d94e49;
+            animation: orbit-mars 45s linear infinite; /* Faster orbit */
+        }
 
-@keyframes orbit-earth {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
+        .jupiter {
+            width: 70px; /* Increased size */
+            height: 70px;
+            background-color: #b5651d;
+            animation: orbit-jupiter 70s linear infinite; /* Faster orbit */
+        }
 
-@keyframes orbit-mars {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
+        .saturn {
+            width: 60px; /* Increased size */
+            height: 60px;
+            background-color: #f1c27d;
+            animation: orbit-saturn 150s linear infinite; /* Faster orbit */
+        }
 
-</style>
+        .saturn-rings {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100px; /* Increased size of rings */
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+            transform: rotate(45deg);
+            margin-top: -15px;
+            margin-left: -50px;
+            z-index: -1; /* Place rings behind Saturn */
+        }
+
+        .uranus {
+            width: 40px; /* Increased size */
+            height: 40px;
+            background-color: #a9d5f2;
+            animation: orbit-uranus 250s linear infinite; /* Faster orbit */
+        }
+
+        .neptune {
+            width: 35px; /* Increased size */
+            height: 35px;
+            background-color: #4b6a9b;
+            animation: orbit-neptune 350s linear infinite; /* Faster orbit */
+        }
+
+        /* Keyframe animations */
+        @keyframes orbit-mercury {
+            from { transform: rotate(0deg) translateX(150px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+        }
+
+        @keyframes orbit-venus {
+            from { transform: rotate(0deg) translateX(250px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(250px) rotate(-360deg); }
+        }
+
+        @keyframes orbit-earth {
+            from { transform: rotate(0deg) translateX(350px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(350px) rotate(-360deg); }
+        }
+
+        @keyframes orbit-mars {
+            from { transform: rotate(0deg) translateX(450px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(450px) rotate(-360deg); }
+        }
+
+        @keyframes orbit-jupiter {
+            from { transform: rotate(0deg) translateX(600px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(600px) rotate(-360deg); }
+        }
+
+        @keyframes orbit-saturn {
+            from { transform: rotate(0deg) translateX(750px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(750px) rotate(-360deg); }
+        }
+
+        @keyframes orbit-uranus {
+            from { transform: rotate(0deg) translateX(900px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(900px) rotate(-360deg); }
+        }
+
+        @keyframes orbit-neptune {
+            from { transform: rotate(0deg) translateX(1050px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(1050px) rotate(-360deg); }
+        }
+
+        /* Styles for orbit lines */
+        .orbit-line {
+            position: absolute;
+            border: 1px dashed rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            pointer-events: none; /* Make sure lines don't interfere with clicks */
+            z-index: 0; /* Ensure orbit lines are behind planets */
+        }
+
+        .mercury-orbit {
+            width: 300px; /* Orbit size for Mercury */
+            height: 300px;
+            top: 50%;
+            left: 50%;
+            margin-top: -150px;
+            margin-left: -150px;
+        }
+
+        .venus-orbit {
+            width: 500px; /* Orbit size for Venus */
+            height: 500px;
+            top: 50%;
+            left: 50%;
+            margin-top: -250px;
+            margin-left: -250px;
+        }
+
+        .earth-orbit {
+            width: 700px; /* Orbit size for Earth */
+            height: 700px;
+            top: 50%;
+            left: 50%;
+            margin-top: -350px;
+            margin-left: -350px;
+        }
+
+        .mars-orbit {
+            width: 900px; /* Orbit size for Mars */
+            height: 900px;
+            top: 50%;
+            left: 50%;
+            margin-top: -450px;
+            margin-left: -450px;
+        }
+
+        .jupiter-orbit {
+            width: 1200px; /* Orbit size for Jupiter */
+            height: 1200px;
+            top: 50%;
+            left: 50%;
+            margin-top: -600px;
+            margin-left: -600px;
+        }
+
+        .saturn-orbit {
+            width: 1500px; /* Orbit size for Saturn */
+            height: 1500px;
+            top: 50%;
+            left: 50%;
+            margin-top: -750px;
+            margin-left: -750px;
+        }
+
+        .uranus-orbit {
+            width: 1800px; /* Orbit size for Uranus */
+            height: 1800px;
+            top: 50%;
+            left: 50%;
+            margin-top: -900px;
+            margin-left: -900px;
+        }
+
+        .neptune-orbit {
+            width: 2100px; /* Orbit size for Neptune */
+            height: 2100px;
+            top: 50%;
+            left: 50%;
+            margin-top: -1050px;
+            margin-left: -1050px;
+        }
+
+        /* Moon styles */
+        .moon {
+            position: absolute;
+            width: 10px; /* Size of the moon */
+            height: 10px;
+            background-color: #ccc;
+            border-radius: 50%;
+            top: 50%; /* Center the moon within Earth */
+            left: 50%;
+            margin-top: -5px; /* Center the moon vertically */
+            margin-left: -5px; /* Center the moon horizontally */
+            animation: orbit-moon 5s linear infinite; /* Orbit animation */
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.6); /* Subtle glow */
+        }
+
+        /* Keyframe animation for the moon's orbit */
+        @keyframes orbit-moon {
+            from { transform: rotate(0deg) translateX(50px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(50px) rotate(-360deg); }
+        }
+    </style>
 
 <div class="solar-system">
+        <div class="star-field"></div> <!-- Star field layer -->
         <div class="sun"></div>
-        <div class="planet mercury" id="mercury"></div>
-        <div class="planet venus" id="venus"></div>
-        <div class="planet earth" id="earth"></div>
-        <div class="planet mars" id="mars"></div>
+        <!-- Orbit lines -->
+        <div class="orbit-line mercury-orbit"></div>
+        <div class="orbit-line venus-orbit"></div>
+        <div class="orbit-line earth-orbit"></div>
+        <div class="orbit-line mars-orbit"></div>
+        <div class="orbit-line jupiter-orbit"></div>
+        <div class="orbit-line saturn-orbit"></div>
+        <div class="orbit-line uranus-orbit"></div>
+        <div class="orbit-line neptune-orbit"></div>
+        <!-- Planets -->
+        <div class="planet mercury"></div>
+        <div class="planet venus"></div>
+        <div class="planet earth">
+            <div class="moon"></div>
+        </div>
+        <div class="planet mars"></div>
+        <div class="planet jupiter"></div>
+        <div class="planet saturn">
+            <div class="saturn-rings"></div>
+        </div>
+        <div class="planet uranus"></div>
+        <div class="planet neptune"></div>
     </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-    const planets = {
-        mercury: document.getElementById('mercury'),
-        venus: document.getElementById('venus'),
-        earth: document.getElementById('earth'),
-        mars: document.getElementById('mars')
-    };
+    <script>
+        // JavaScript to generate random stars
+        document.addEventListener('DOMContentLoaded', function () {
+            const starField = document.querySelector('.star-field');
+            const numStars = 500; // Number of stars to generate
 
-    for (const planet in planets) {
-        const randomDegree = Math.floor(Math.random() * 360);
-        planets[planet].style.transform = `rotate(${randomDegree}deg)`;
-        planets[planet].style.animation = `orbit-${planet} ${planet === 'mercury' ? 4 : planet === 'venus' ? 6 : planet === 'earth' ? 8 : 10}s linear infinite`;
-    }
-});
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                const size = Math.random() * 3 + 1; // Random size between 1 and 4
+                const x = Math.random() * 100; // Random position (percentage)
+                const y = Math.random() * 100; // Random position (percentage)
 
-</script>
+                star.style.position = 'absolute';
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.backgroundColor = '#fff';
+                star.style.borderRadius = '50%';
+                star.style.top = `${y}%`;
+                star.style.left = `${x}%`;
+
+                // Append the star to the star field
+                starField.appendChild(star);
+            }
+        });
+    </script>
