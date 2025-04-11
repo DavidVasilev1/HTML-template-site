@@ -3,120 +3,72 @@ layout: default
 title: Home
 ---
 
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-            background-color: black;
-        }
-
-        #video {
-            height: auto;
-            width: 100vw;
-            display: block;
-            margin: 0 auto;
-            transition: transform 0.2s ease;
-            pointer-events: none;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My DaisyUI Homepage</title>
+    <link href="dist/styles.css" rel="stylesheet">
 </head>
+<body class="bg-base-100">
 
-<body>
-    <video id="video" autoplay muted></video>
+    <!-- Hero Section -->
+    <section class="hero min-h-screen bg-base-200">
+        <div class="hero-content text-center">
+            <div class="max-w-md">
+                <h1 class="text-5xl font-bold">Welcome to My Website</h1>
+                <p class="py-6">We provide the best services for you with a clean and simple user interface.</p>
+                <a href="#" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </section>
 
-    <script>
-        const video = document.getElementById('video');
-    
-        let currentStreamIndex = 0;
-        const streams = [
-            '/pages/stream.m3u8',      // Stream 1
-            '/pages/stream2.m3u8'      // Stream 2
-        ];
-    
-        let hls = null;
-    
-        function loadStream(index) {
-            if (hls) {
-                hls.destroy();
-            }
-    
-            hls = new Hls();
-            hls.loadSource(streams[index]);
-            hls.attachMedia(video);
-        }
-    
-        if (Hls.isSupported()) {
-            loadStream(currentStreamIndex);
-        }
-    
-        // Zoom and Pan State
-        let scale = 1;
-        let panX = 0;
-    
-        const MIN_SCALE = 1;
-        const MAX_SCALE = 3;
-        const ZOOM_STEP = 0.01;
-        const PAN_STEP = 5;
-    
-        let keysPressed = {};
-    
-        function updateTransform() {
-            const screenWidth = window.innerWidth;
-            const visibleWidth = screenWidth;
-            const scaledWidth = visibleWidth * scale;
-            const maxPan = (scaledWidth - visibleWidth) / 2;
-    
-            panX = Math.max(-maxPan, Math.min(panX, maxPan));
-            video.style.transform = `translateX(${panX}px) scale(${scale})`;
-        }
-    
-        function handleMovement() {
-            let needsUpdate = false;
-    
-            if (keysPressed['ArrowUp'] && scale < MAX_SCALE) {
-                scale = Math.min(MAX_SCALE, scale + ZOOM_STEP);
-                needsUpdate = true;
-            }
-            if (keysPressed['ArrowDown'] && scale > MIN_SCALE) {
-                scale = Math.max(MIN_SCALE, scale - ZOOM_STEP);
-                needsUpdate = true;
-            }
-            if (keysPressed['ArrowRight']) {
-                panX -= PAN_STEP;
-                needsUpdate = true;
-            }
-            if (keysPressed['ArrowLeft']) {
-                panX += PAN_STEP;
-                needsUpdate = true;
-            }
-    
-            if (needsUpdate) updateTransform();
-            requestAnimationFrame(handleMovement);
-        }
-    
-        document.addEventListener('keydown', e => {
-            keysPressed[e.key] = true;
-    
-            // Stream switch on 's' key press (or any key you want)
-            if (e.key === 's' || e.key === 'S') {
-                currentStreamIndex = (currentStreamIndex + 1) % streams.length;
-                loadStream(currentStreamIndex);
-            }
-        });
-    
-        document.addEventListener('keyup', e => {
-            keysPressed[e.key] = false;
-        });
-    
-        requestAnimationFrame(handleMovement);
-        window.addEventListener('resize', updateTransform);
-    </script>
-    
+    <!-- Features Section -->
+    <section class="py-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold">Our Features</h2>
+            <p class="text-gray-600 mb-8">Explore the awesome features we offer</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        <h3 class="card-title">Feature One</h3>
+                        <p>Description of feature one.</p>
+                        <div class="card-actions justify-end">
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        <h3 class="card-title">Feature Two</h3>
+                        <p>Description of feature two.</p>
+                        <div class="card-actions justify-end">
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        <h3 class="card-title">Feature Three</h3>
+                        <p>Description of feature three.</p>
+                        <div class="card-actions justify-end">
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer p-10 bg-base-200 text-base-content">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 My Website. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Font Awesome (for icons) -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
-
-
-
+</html>
